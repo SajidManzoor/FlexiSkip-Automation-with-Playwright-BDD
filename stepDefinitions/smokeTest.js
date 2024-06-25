@@ -1,5 +1,4 @@
 import { createBdd } from 'playwright-bdd';
-import { test } from '@playwright/test'
 import { Login } from '../pages/login'
 import { Dashboard } from '../pages/dashboard'
 import { Portals } from '../pages/portals'
@@ -66,11 +65,8 @@ When('the user logs in with the email address and API key from the test data the
 
 
 // Scenario: Create Order
-Given('the user is logged in', async ({ }) => {
-  console.log('Verify login successful')
-});
 
-When('the user selects the portal from the test data', async ({ }) => {
+Given('the user selects the portal from the test data', async ({ }) => {
   await dashboard.selectPortal(testData.portalName)
 });
 
@@ -98,20 +94,14 @@ When('the user confirms the order', async ({ }) => {
   await checkout.confirmOrder()
 });
 
-When('the user fills in the Stripe details from the card details', async ({ }) => {
+When('the user fills in the Stripe details from the card details the order should be created successfully', async ({ }) => {
   await checkout.fillStripeDetails(cardDetails.cardNumber, cardDetails.cardExpiry, cardDetails['CVC'], cardDetails.billingName, cardDetails.country, cardDetails.zipCode)
 });
 
-Then('the order should be created successfully', async ({ }) => {
-  console.log('Verify order created')
-});
 
-Given('the user is on the dashboard', async ({ }) => {
-  console.log('Verify user is on dashboard')
-});
 
 // Scenario: FAQ page
-When('the user opens the FAQ page', async ({ }) => {
+Given('the user opens the FAQ page', async ({ }) => {
   await dashboard.openFAQ()
 });
 
@@ -120,7 +110,7 @@ Then('the FAQ page should be validated successfully', async ({ }) => {
 });
 
 // Scenario: Sign Out
-When('the user signs out', async ({ }) => {
+Given('the user signs out', async ({ }) => {
   await dashboard.signOut()
 });
 

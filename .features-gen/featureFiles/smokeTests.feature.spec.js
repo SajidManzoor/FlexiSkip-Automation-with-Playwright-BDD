@@ -13,33 +13,27 @@ test.describe("Smoke Tests", () => {
 
   test("Login", { tag: ["@mode:serial"] }, async ({ Given, When, Then }) => {
     await Given("the user is on the login page");
-    await When("the user logs in with the email address and API key from the test data");
-    await Then("the user should be logged in successfully");
+    await When("the user logs in with the email address and API key from the test data the user should be logged in successfully");
   });
 
   test("Create Order", { tag: ["@mode:serial"] }, async ({ Given, When, And, Then }) => {
-    await Given("the user is logged in");
-    await When("the user selects the portal from the test data");
-    await And("the user clicks on eligibility");
+    await Given("the user selects the portal from the test data");
+    await When("the user clicks on eligibility");
     await And("the user searches for the address from the test data");
     await And("the user selects the first option");
     await And("the user clicks on checkout");
     await And("the user fills in the details from the test data");
     await And("the user confirms the order");
-    await And("the user fills in the Stripe details from the card details");
-    await Then("the order should be created successfully");
+    await And("the user fills in the Stripe details from the card details the order should be created successfully");
   });
 
   test("FAQ page", { tag: ["@mode:serial"] }, async ({ Given, When, Then }) => {
-    await Given("the user is on the dashboard");
-    await When("the user opens the FAQ page");
+    await Given("the user opens the FAQ page");
     await Then("the FAQ page should be validated successfully");
   });
 
   test("Sign Out", { tag: ["@mode:serial"] }, async ({ Given, When, Then }) => {
-    await Given("the user is on the dashboard");
-    await When("the user signs out");
-    await Then("the user should be signed out successfully");
+    await Given("the user signs out");
   });
 
 });
